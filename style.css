@@ -146,11 +146,10 @@ img {
   color: var(--color-secondary);
 }
 
-/* --- NAVBAR --- */
 .navbar {
   position: fixed;
-  top: var(--topbar-height); /* Se ubica justo debajo de la top-bar */
-  left: 0;
+  top: 0; /* Cambia esto a 0 para subirlo al máximo */
+  left: 0; /* Cambia -10% a 0 para que esté centrado correctamente */
   width: 100%;
   height: var(--header-height);
   background: rgba(26, 26, 26, 0.95);
