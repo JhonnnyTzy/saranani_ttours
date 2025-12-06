@@ -1,0 +1,5 @@
+# Regla 1: Redirigir rutas sin .html a la versión con .html
+/* /:splat.html 200
+
+# Regla 2: Fallback para rutas que Netlify no puede encontrar (por si acaso)
+/* /index.html 200

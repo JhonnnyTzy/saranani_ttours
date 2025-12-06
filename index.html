@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="public/logo1.JPG" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Sarañani Tours Bolivia - Turismo inteligente, realidad virtual y recorridos 360° por Bolivia." />
+  <title>Sarañani Tours Bolivia | Viaja Virtualmente</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="src/style1.css">
+</head>
+
+<body>
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div class="contact-info">
+        <span><i class="fas fa-phone"></i> +591 </span>
+        <span><i class="fas fa-envelope"></i> info@sarananitours.com</span>
+        <span class="hide-mobile"><i class="fas fa-map-marker-alt"></i> La Paz, Bolivia</span>
+      </div>
+      <div class="social-mini">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <img src="public/logo1.JPG" alt="Sarañani Tours Logo" />
+        <span>Sarañani</span>
+      </a>
+      <button class="mobile-menu-btn" aria-label="Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Inicio</a></li>
+        <li><a href="circuits.html">Circuitos</a></li> 
+        <li><a href="about.html">Nosotros</a></li>
+        <li><a href="login.html" class="nav-login-btn">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <h1 class="hero-title">Bolivia a tus ojos, el viaje en tus manos.</h1>
+        <p class="hero-subtitle">Sentimos y conocemos a fondo la esencia cultural. Vive la experiencia en Realidad Virtual y planifica tu viaje físico.</p>
+        <div class="hero-buttons">
+          <a href="#demo" class="cta-button">Iniciar Viaje Virtual</a>
+          <a href="#paquetes" class="cta-button outline">Ver lugares mas visitados </a>
+        </div>
+      </div>
+    </section>
+
+   <section id="paquetes" class="tours-section"> 
+  <div class="container">
+    <h2 class="section-title">Destinos Populares por Departamento</h2>
+    <p class="section-desc">Explora Bolivia a través de sus lugares más visitados y experiencias únicas.</p>
+    
+<!-- La Paz -->
+<h3 class="department-title">La Paz</h3>
+<div class="tours-grid">
+  <div class="tour-card">
+    <div class="tour-image" style="background-image:url(public/C1.jpg);">
+      <span class="tag">Cultural</span>
+    </div>
+    <div class="tour-content">
+      <h3>Ciudad de La Paz</h3>
+      <p>Explora la Calle Jaén, el Mercado de Las Brujas y el corazón urbano de la ciudad.</p>
+      <ul class="tour-meta">
+        <li><i class="fas fa-map-marker-alt"></i> La Paz</li>
+        <li><i class="fas fa-user"></i> Desde 1 pax</li>
+      </ul>
+      <!-- Manteniendo la etiqueta original -->
+      <a href="#" class="btn-link" id="openModal">Ver Detalles &rarr;</a>
+    </div>
+  </div>
+
+  <div class="tour-card">
+  <div class="tour-image" style="background-image: url('public/C2.jpg');">
+    <span class="tag">Naturaleza</span>
+  </div>
+  <div class="tour-content">
+    <h3>Lago Titicaca</h3>
+    <p>Descubre la belleza del lago navegable más alto del mundo y sus islas flotantes.</p>
+    <ul class="tour-meta">
+      <li><i class="fas fa-map-marker-alt"></i> La Paz / Puno</li>
+      <li><i class="fas fa-user"></i> Desde 2 pax</li>
+    </ul>
+    <a href="#" class="btn-link" id="openModalTiticaca">Ver Detalles &rarr;</a>
+  </div>
+</div>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Ciudad de La Paz</h2>
+    <p>La Paz es la sede del gobierno de Bolivia, conocida por su altitud y su vibrante vida cultural. Podrás visitar la Calle Jaén, el Mercado de las Brujas y disfrutar de la arquitectura colonial y moderna de la ciudad.</p>
+    <img src="public/C1.jpg" alt="Ciudad de La Paz" style="width:100%; border-radius: 8px;">
+  </div>
+</div>
+<!-- Modal Lago Titicaca -->
+<div id="myModalTiticaca" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeTiticaca">&times;</span>
+    <h2>Lago Titicaca</h2>
+    <p>El Lago Titicaca es el lago navegable más alto del mundo, ubicado entre Bolivia y Perú. Es famoso por sus islas flotantes de los Uros, su cultura ancestral y paisajes impresionantes.</p>
+    <img src="public/C2.jpg" alt="Lago Titicaca" style="width:100%; border-radius:8px;">
+  </div>
+</div>
+<!-- Santa Cruz -->
+<h3 class="department-title">Santa Cruz</h3>
+<div class="tours-grid">
+  <!-- Parque Nacional Amboró -->
+  <div class="tour-card">
+    <div class="tour-image" style="background-image: url('public/C3.jpg');">
+      <span class="tag">Naturaleza</span>
+    </div>
+    <div class="tour-content">
+      <h3>Parque Nacional Amboró</h3>
+      <p>Biodiversidad y senderos para explorar la fauna y flora amazónica.</p>
+      <ul class="tour-meta">
+        <li><i class="fas fa-map-marker-alt"></i> Santa Cruz</li>
+        <li><i class="fas fa-user"></i> Desde 2 pax</li>
+      </ul>
+      <a href="#" class="btn-link" id="openAmboro">Ver Detalles &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Samaipata -->
+  <div class="tour-card">
+    <div class="tour-image" style="background-image: url('public/C4.jpg');">
+      <span class="tag">Cultural</span>
+    </div>
+    <div class="tour-content">
+      <h3>Samaipata</h3>
+      <p>Visita el sitio arqueológico y disfruta de su entorno natural y cultural.</p>
+      <ul class="tour-meta">
+        <li><i class="fas fa-map-marker-alt"></i> Santa Cruz</li>
+        <li><i class="fas fa-user"></i> Desde 1 pax</li>
+      </ul>
+      <a href="#" class="btn-link" id="openSamaipata">Ver Detalles &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL PARA Parque Nacional Amboró -->
+<div id="modalAmboro" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeAmboro">&times;</span>
+    <h2>Parque Nacional Amboró</h2>
+    <p>Biodiversidad y senderos para explorar la fauna y flora amazónica en Santa Cruz.</p>
+    <img src="public/C3.jpg" 
+         alt="Parque Nacional Amboró" style="width:100%; border-radius:8px;">
+  </div>
+</div>
+
+<!-- MODAL PARA Samaipata -->
+<div id="modalSamaipata" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeSamaipata">&times;</span>
+    <h2>Samaipata</h2>
+    <p>Visita el sitio arqueológico y disfruta de su entorno natural y cultural en Santa Cruz.</p>
+    <img src="public/C4.jpg"
+         alt="Samaipata" style="width:100%; border-radius:8px;">
+  </div>
+</div>
+
+<!-- JavaScript para abrir/cerrar los modales -->
+<script>
+  // Modal Amboró
+  const modalAmboro = document.getElementById("modalAmboro");
+  const btnAmboro = document.getElementById("openAmboro");
+  const closeAmboro = document.getElementById("closeAmboro");
+
+  btnAmboro.onclick = function(e) {
+    e.preventDefault();
+    modalAmboro.style.display = "block";
+  }
+  closeAmboro.onclick = function() {
+    modalAmboro.style.display = "none";
+  }
+
+  // Modal Samaipata
+  const modalSamaipata = document.getElementById("modalSamaipata");
+  const btnSamaipata = document.getElementById("openSamaipata");
+  const closeSamaipata = document.getElementById("closeSamaipata");
+
+  btnSamaipata.onclick = function(e) {
+    e.preventDefault();
+    modalSamaipata.style.display = "block";
+  }
+  closeSamaipata.onclick = function() {
+    modalSamaipata.style.display = "none";
+  }
+
+  // Cerrar modales al hacer clic fuera
+  window.onclick = function(event) {
+    if(event.target == modalAmboro) {
+      modalAmboro.style.display = "none";
+    }
+    if(event.target == modalSamaipata) {
+      modalSamaipata.style.display = "none";
+    }
+  }
+</script>
+    <!-- Cochabamba -->
+<h3 class="department-title">Cochabamba</h3>
+<div class="tours-grid">
+  <!-- Cristo de la Concordia -->
+  <div class="tour-card">
+    <div class="tour-image" style="background-image: url('public/C5.jpg');">
+      <span class="tag">Cultural</span>
+    </div>
+    <div class="tour-content">
+      <h3>Cristo de la Concordia</h3>
+      <p>Admira la estatua más alta de Sudamérica y vistas panorámicas de la ciudad.</p>
+      <ul class="tour-meta">
+        <li><i class="fas fa-map-marker-alt"></i> Cochabamba</li>
+        <li><i class="fas fa-user"></i> Desde 1 pax</li>
+      </ul>
+      <a href="#" class="btn-link" id="openCristo">Ver Detalles &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Parque Nacional Tunari -->
+  <div class="tour-card">
+    <div class="tour-image" style="background-image: url(public/C6.jpg);">
+      <span class="tag">Naturaleza</span>
+    </div>
+    <div class="tour-content">
+      <h3>Parque Nacional Tunari</h3>
+      <p>Ideal para trekking y disfrutar del aire libre en los Andes.</p>
+      <ul class="tour-meta">
+        <li><i class="fas fa-map-marker-alt"></i> Cochabamba</li>
+        <li><i class="fas fa-user"></i> Desde 2 pax</li>
+      </ul>
+      <a href="#" class="btn-link" id="openTunari">Ver Detalles &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL PARA Cristo de la Concordia -->
+<div id="modalCristo" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeCristo">&times;</span>
+    <h2>Cristo de la Concordia</h2>
+    <p>Admira la estatua más alta de Sudamérica y disfruta de vistas panorámicas de Cochabamba desde este ícono cultural.</p>
+    <img src="public/C5.jpg" 
+         alt="Cristo de la Concordia" style="width:100%; border-radius:8px;">
+  </div>
+</div>
+
+<!-- MODAL PARA Parque Nacional Tunari -->
+<div id="modalTunari" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeTunari">&times;</span>
+    <h2>Parque Nacional Tunari</h2>
+    <p>Ideal para trekking y disfrutar del aire libre en los Andes, con paisajes impresionantes y rutas para todos los niveles.</p>
+    <img src="public/C6.jpg"
+         alt="Parque Nacional Tunari" style="width:100%; border-radius:8px;">
+  </div>
+</div>
+
+<!-- JavaScript para abrir/cerrar los modales -->
+<script>
+  // Modal Cristo de la Concordia
+  const modalCristo = document.getElementById("modalCristo");
+  const btnCristo = document.getElementById("openCristo");
+  const closeCristo = document.getElementById("closeCristo");
+
+  btnCristo.onclick = function(e) {
+    e.preventDefault();
+    modalCristo.style.display = "block";
+  }
+  closeCristo.onclick = function() {
+    modalCristo.style.display = "none";
+  }
+
+  // Modal Parque Nacional Tunari
+  const modalTunari = document.getElementById("modalTunari");
+  const btnTunari = document.getElementById("openTunari");
+  const closeTunari = document.getElementById("closeTunari");
+
+  btnTunari.onclick = function(e) {
+    e.preventDefault();
+    modalTunari.style.display = "block";
+  }
+  closeTunari.onclick = function() {
+    modalTunari.style.display = "none";
+  }
+
+  // Cerrar modales al hacer clic fuera
+  window.onclick = function(event) {
+    if(event.target == modalCristo) {
+      modalCristo.style.display = "none";
+    }
+    if(event.target == modalTunari) {
+      modalTunari.style.display = "none";
+    }
+  }
+</script>
+
+
+<!-- Oruro -->
+<h3 class="department-title">Oruro</h3>
+<div class="tours-grid">
+  <!-- Carnaval de Oruro -->
+  <div class="tour-card">
+    <div class="tour-image" style="background-image: url('public/C7.jpg');">
+      <span class="tag">Cultural</span>
+    </div>
+    <div class="tour-content">
+      <h3>Carnaval de Oruro</h3>
+      <p>Patrimonio cultural y fiesta tradicional reconocida mundialmente.</p>
+      <ul class="tour-meta">
+        <li><i class="fas fa-map-marker-alt"></i> Oruro</li>
+        <li><i class="fas fa-user"></i> Desde 1 pax</li>
+      </ul>
+      <a href="#" class="btn-link" id="openCarnaval">Ver Detalles &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Parque Nacional Sajama -->
+  <div class="tour-card">
+    <div class="tour-image" style="background-image: url('public/C8.jpg');">
+      <span class="tag">Naturaleza</span>
+    </div>
+    <div class="tour-content">
+      <h3>Parque Nacional Sajama</h3>
+      <p>Montañas, termas y paisajes andinos impresionantes.</p>
+      <ul class="tour-meta">
+        <li><i class="fas fa-map-marker-alt"></i> Oruro</li>
+        <li><i class="fas fa-user"></i> Desde 2 pax</li>
+      </ul>
+      <a href="#" class="btn-link" id="openSajama">Ver Detalles &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL PARA Carnaval de Oruro -->
+<div id="modalCarnaval" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeCarnaval">&times;</span>
+    <h2>Carnaval de Oruro</h2>
+    <p>El Carnaval de Oruro es Patrimonio Cultural Inmaterial de la Humanidad, con danzas, disfraces y tradiciones ancestrales que reflejan la riqueza cultural boliviana.</p>
+    <img src="public/C7.jpg" alt="Carnaval de Oruro" style="width:100%; border-radius:8px;">
+  </div>
+</div>
+
+<!-- MODAL PARA Parque Nacional Sajama -->
+<div id="modalSajama" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeSajama">&times;</span>
+    <h2>Parque Nacional Sajama</h2>
+    <p>Parque Nacional Sajama ofrece paisajes andinos únicos, volcanes, termas y biodiversidad para explorar en Oruro.</p>
+    <img src="public/C8.jpg" alt="Parque Nacional Sajama" style="width:100%; border-radius:8px;">
+  </div>
+</div>
+
+<!-- JavaScript para abrir/cerrar los modales -->
+<script>
+  // Modal Carnaval de Oruro
+  const modalCarnaval = document.getElementById("modalCarnaval");
+  const btnCarnaval = document.getElementById("openCarnaval");
+  const closeCarnaval = document.getElementById("closeCarnaval");
+
+  btnCarnaval.onclick = function(e) {
+    e.preventDefault();
+    modalCarnaval.style.display = "block";
+  }
+  closeCarnaval.onclick = function() {
+    modalCarnaval.style.display = "none";
+  }
+
+  // Modal Parque Nacional Sajama
+  const modalSajama = document.getElementById("modalSajama");
+  const btnSajama = document.getElementById("openSajama");
+  const closeSajama = document.getElementById("closeSajama");
+
+  btnSajama.onclick = function(e) {
+    e.preventDefault();
+    modalSajama.style.display = "block";
+  }
+  closeSajama.onclick = function() {
+    modalSajama.style.display = "none";
+  }
+
+  // Cerrar modales al hacer clic fuera
+  window.onclick = function(event) {
+    if(event.target == modalCarnaval) {
+      modalCarnaval.style.display = "none";
+    }
+    if(event.target == modalSajama) {
+      modalSajama.style.display = "none";
+    }
+  }
+</script>
+
+<!-- Potosí -->
+<h3 class="department-title">Potosí</h3>
+<div class="tours-grid">
+  <!-- Salar de Uyuni -->
+  <div class="tour-card">
+    <div class="tour-image" style="background-image: url('public/C9.jpg');">
+      <span class="tag">Naturaleza</span>
+    </div>
+    <div class="tour-content">
+      <h3>Salar de Uyuni</h3>
+      <p>El desierto de sal más grande del mundo, espejos de agua y cielo infinito.</p>
+      <ul class="tour-meta">
+        <li><i class="fas fa-map-marker-alt"></i> Potosí</li>
+        <li><i class="fas fa-user"></i> Desde 2 pax</li>
+      </ul>
+      <a href="#" class="btn-link" id="openUyuni">Ver Detalles &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Cerro Rico -->
+  <div class="tour-card">
+    <div class="tour-image" style="background-image: url('public/C10.jpg');">
+      <span class="tag">Cultural</span>
+    </div>
+    <div class="tour-content">
+      <h3>Cerro Rico</h3>
+      <p>Explora la historia minera de Potosí y su importancia cultural.</p>
+      <ul class="tour-meta">
+        <li><i class="fas fa-map-marker-alt"></i> Potosí</li>
+        <li><i class="fas fa-user"></i> Desde 1 pax</li>
+      </ul>
+      <a href="#" class="btn-link" id="openCerro">Ver Detalles &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL PARA Salar de Uyuni -->
+<div id="modalUyuni" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeUyuni">&times;</span>
+    <h2>Salar de Uyuni</h2>
+    <p>El Salar de Uyuni es el desierto de sal más grande del mundo, famoso por sus reflejos espectaculares y paisajes infinitos que parecen de otro planeta.</p>
+    <img src="public/C9.jpg" alt="Salar de Uyuni" style="width:100%; border-radius:8px;">
+  </div>
+</div>
+
+<!-- MODAL PARA Cerro Rico -->
+<div id="modalCerro" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeCerro">&times;</span>
+    <h2>Cerro Rico</h2>
+    <p>El Cerro Rico de Potosí es conocido por su historia minera, sus minas de plata y su gran importancia cultural en la época colonial y actual.</p>
+    <img src="public/C10.jpg" alt="Cerro Rico" style="width:100%; border-radius:8px;">
+  </div>
+</div>
+
+<!-- JavaScript para abrir/cerrar los modales de Potosí -->
+<script>
+  // Modal Salar de Uyuni
+  const modalUyuni = document.getElementById("modalUyuni");
+  const btnUyuni = document.getElementById("openUyuni");
+  const closeUyuni = document.getElementById("closeUyuni");
+
+  btnUyuni.onclick = function(e) {
+    e.preventDefault();
+    modalUyuni.style.display = "block";
+  }
+  closeUyuni.onclick = function() {
+    modalUyuni.style.display = "none";
+  }
+
+  // Modal Cerro Rico
+  const modalCerro = document.getElementById("modalCerro");
+  const btnCerro = document.getElementById("openCerro");
+  const closeCerro = document.getElementById("closeCerro");
+
+  btnCerro.onclick = function(e) {
+    e.preventDefault();
+    modalCerro.style.display = "block";
+  }
+  closeCerro.onclick = function() {
+    modalCerro.style.display = "none";
+  }
+
+  // Cerrar modales al hacer clic fuera
+  window.onclick = function(event) {
+    if(event.target == modalUyuni) {
+      modalUyuni.style.display = "none";
+    }
+    if(event.target == modalCerro) {
+      modalCerro.style.display = "none";
+    }
+  }
+</script>
+<!-- Tarija -->
+<h3 class="department-title">Tarija</h3>
+<div class="tours-grid">
+  <!-- Viñedos y Bodegas -->
+  <div class="tour-card">
+    <div class="tour-image" style="background-image: url('public/C11.jpg');">
+      <span class="tag">Gastronomía</span>
+    </div>
+    <div class="tour-content">
+      <h3>Viñedos y Bodegas</h3>
+      <p>Disfruta del vino y la gastronomía local en el Valle de la Concepción.</p>
+      <ul class="tour-meta">
+        <li><i class="fas fa-map-marker-alt"></i> Tarija</li>
+        <li><i class="fas fa-user"></i> Desde 1 pax</li>
+      </ul>
+      <a href="#" class="btn-link" id="openVinedos">Ver Detalles &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Chorros de Jurina -->
+  <div class="tour-card">
+    <div class="tour-image" style="background-image: url('public/C12.jpg');">
+      <span class="tag">Naturaleza</span>
+    </div>
+    <div class="tour-content">
+      <h3>Chorros de Jurina</h3>
+      <p>Aventura y contacto con cascadas y naturaleza en Tarija.</p>
+      <ul class="tour-meta">
+        <li><i class="fas fa-map-marker-alt"></i> Tarija</li>
+        <li><i class="fas fa-user"></i> Desde 2 pax</li>
+      </ul>
+      <a href="#" class="btn-link" id="openChorros">Ver Detalles &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL PARA Viñedos y Bodegas -->
+<div id="modalVinedos" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeVinedos">&times;</span>
+    <h2>Viñedos y Bodegas</h2>
+    <p>Descubre los viñedos y bodegas de Tarija, disfruta del vino local y vive una experiencia gastronómica única en el Valle de la Concepción.</p>
+    <img src="public/C11.jpg" alt="Viñedos y Bodegas" style="width:100%; border-radius:8px;">
+  </div>
+</div>
+
+<!-- MODAL PARA Chorros de Jurina -->
+<div id="modalChorros" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeChorros">&times;</span>
+    <h2>Chorros de Jurina</h2>
+    <p>Los Chorros de Jurina ofrecen cascadas y paisajes naturales ideales para la aventura y el contacto directo con la naturaleza en Tarija.</p>
+    <img src="public/C12.jpg" alt="Chorros de Jurina" style="width:100%; border-radius:8px;">
+  </div>
+</div>
+
+<!-- JavaScript para abrir/cerrar los modales de Tarija -->
+<script>
+  // Modal Viñedos y Bodegas
+  const modalVinedos = document.getElementById("modalVinedos");
+  const btnVinedos = document.getElementById("openVinedos");
+  const closeVinedos = document.getElementById("closeVinedos");
+
+  btnVinedos.onclick = function(e) {
+    e.preventDefault();
+    modalVinedos.style.display = "block";
+  }
+  closeVinedos.onclick = function() {
+    modalVinedos.style.display = "none";
+  }
+
+  // Modal Chorros de Jurina
+  const modalChorros = document.getElementById("modalChorros");
+  const btnChorros = document.getElementById("openChorros");
+  const closeChorros = document.getElementById("closeChorros");
+
+  btnChorros.onclick = function(e) {
+    e.preventDefault();
+    modalChorros.style.display = "block";
+  }
+  closeChorros.onclick = function() {
+    modalChorros.style.display = "none";
+  }
+
+  // Cerrar modales al hacer clic fuera
+  window.onclick = function(event) {
+    if(event.target == modalVinedos) {
+      modalVinedos.style.display = "none";
+    }
+    if(event.target == modalChorros) {
+      modalChorros.style.display = "none";
+    }
+  }
+</script>
+
+<!-- Chuquisaca -->
+<h3 class="department-title">Chuquisaca</h3>
+<div class="tours-grid">
+  <!-- Sucre -->
+  <div class="tour-card">
+    <div class="tour-image" style="background-image: url('public/C13.jpg');">
+      <span class="tag">Cultural</span>
+    </div>
+    <div class="tour-content">
+      <h3>Sucre</h3>
+      <p>Patrimonio histórico y arquitectura colonial reconocida mundialmente.</p>
+      <ul class="tour-meta">
+        <li><i class="fas fa-map-marker-alt"></i> Chuquisaca</li>
+        <li><i class="fas fa-user"></i> Desde 1 pax</li>
+      </ul>
+      <a href="#" class="btn-link" id="openSucre">Ver Detalles &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Tarabuco -->
+  <div class="tour-card">
+    <div class="tour-image" style="background-image: url('public/C14.jpg');">
+      <span class="tag">Cultural</span>
+    </div>
+    <div class="tour-content">
+      <h3>Tarabuco</h3>
+      <p>Visita su famoso mercado indígena y descubre la artesanía local.</p>
+      <ul class="tour-meta">
+        <li><i class="fas fa-map-marker-alt"></i> Chuquisaca</li>
+        <li><i class="fas fa-user"></i> Desde 2 pax</li>
+      </ul>
+      <a href="#" class="btn-link" id="openTarabuco">Ver Detalles &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL PARA Sucre -->
+<div id="modalSucre" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeSucre">&times;</span>
+    <h2>Sucre</h2>
+    <p>Sucre es la capital constitucional de Bolivia, famosa por su arquitectura colonial, historia y patrimonio cultural reconocido por la UNESCO.</p>
+    <img src="public/C13.jpg" alt="Sucre" style="width:100%; border-radius:8px;">
+  </div>
+</div>
+
+<!-- MODAL PARA Tarabuco -->
+<div id="modalTarabuco" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeTarabuco">&times;</span>
+    <h2>Tarabuco</h2>
+    <p>Tarabuco es famoso por su mercado tradicional, donde podrás ver la artesanía local, textiles y vestimenta indígena típica.</p>
+    <img src="public/C14.jpg" alt="Tarabuco" style="width:100%; border-radius:8px;">
+  </div>
+</div>
+
+<!-- JavaScript para abrir/cerrar los modales de Chuquisaca -->
+<script>
+  // Modal Sucre
+  const modalSucre = document.getElementById("modalSucre");
+  const btnSucre = document.getElementById("openSucre");
+  const closeSucre = document.getElementById("closeSucre");
+
+  btnSucre.onclick = function(e) {
+    e.preventDefault();
+    modalSucre.style.display = "block";
+  }
+  closeSucre.onclick = function() {
+    modalSucre.style.display = "none";
+  }
+
+  // Modal Tarabuco
+  const modalTarabuco = document.getElementById("modalTarabuco");
+  const btnTarabuco = document.getElementById("openTarabuco");
+  const closeTarabuco = document.getElementById("closeTarabuco");
+
+  btnTarabuco.onclick = function(e) {
+    e.preventDefault();
+    modalTarabuco.style.display = "block";
+  }
+  closeTarabuco.onclick = function() {
+    modalTarabuco.style.display = "none";
+  }
+
+  // Cerrar modales al hacer clic fuera
+  window.onclick = function(event) {
+    if(event.target == modalSucre) {
+      modalSucre.style.display = "none";
+    }
+    if(event.target == modalTarabuco) {
+      modalTarabuco.style.display = "none";
+    }
+  }
+</script>
+<!-- Beni -->
+<h3 class="department-title">Beni</h3>
+<div class="tours-grid">
+  <!-- Parque Nacional Madidi -->
+  <div class="tour-card">
+    <div class="tour-image" style="background-image: url('public/C15.jpg');">
+      <span class="tag">Naturaleza</span>
+    </div>
+    <div class="tour-content">
+      <h3>Parque Nacional Madidi</h3>
+      <p>Selva amazónica y biodiversidad para los amantes del ecoturismo.</p>
+      <ul class="tour-meta">
+        <li><i class="fas fa-map-marker-alt"></i> Beni</li>
+        <li><i class="fas fa-user"></i> Desde 1 pax</li>
+      </ul>
+      <a href="#" class="btn-link" id="openMadidi">Ver Detalles &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Rurrenabaque -->
+  <div class="tour-card">
+    <div class="tour-image" style="background-image: url('public/C16.jpg');">
+      <span class="tag">Aventura</span>
+    </div>
+    <div class="tour-content">
+      <h3>Rurrenabaque</h3>
+      <p>Puerta de entrada a las pampas y la selva amazónica.</p>
+      <ul class="tour-meta">
+        <li><i class="fas fa-map-marker-alt"></i> Beni</li>
+        <li><i class="fas fa-user"></i> Desde 2 pax</li>
+      </ul>
+      <a href="#" class="btn-link" id="openRurrenabaque">Ver Detalles &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL PARA Parque Nacional Madidi -->
+<div id="modalMadidi" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeMadidi">&times;</span>
+    <h2>Parque Nacional Madidi</h2>
+    <p>El Parque Nacional Madidi es un área protegida en la Amazonía boliviana, con gran biodiversidad y ecosistemas únicos.</p>
+    <img src="public/C15.jpg" alt="Parque Nacional Madidi" style="width:100%; border-radius:8px;">
+  </div>
+</div>
+
+<!-- MODAL PARA Rurrenabaque -->
+<div id="modalRurrenabaque" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeRurrenabaque">&times;</span>
+    <h2>Rurrenabaque</h2>
+    <p>Rurrenabaque es la puerta de entrada a la Amazonía y las pampas del Beni, ideal para ecoturismo y aventura.</p>
+    <img src="public/C16.jpg" alt="Rurrenabaque" style="width:100%; border-radius:8px;">
+  </div>
+</div>
+
+<!-- Pando -->
+<h3 class="department-title">Pando</h3>
+<div class="tours-grid">
+  <!-- Cobija -->
+  <div class="tour-card">
+    <div class="tour-image" style="background-image: url('public/C17.jpg');">
+      <span class="tag">Cultural</span>
+    </div>
+    <div class="tour-content">
+      <h3>Cobija</h3>
+      <p>Explora la ciudad fronteriza y conoce su cultura amazónica.</p>
+      <ul class="tour-meta">
+        <li><i class="fas fa-map-marker-alt"></i> Pando</li>
+        <li><i class="fas fa-user"></i> Desde 1 pax</li>
+      </ul>
+      <a href="#" class="btn-link" id="openCobija">Ver Detalles &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Parque Nacional Manuripi -->
+  <div class="tour-card">
+    <div class="tour-image" style="background-image: url('public/C18.jpg');">
+      <span class="tag">Naturaleza</span>
+    </div>
+    <div class="tour-content">
+      <h3>Parque Nacional Manuripi</h3>
+      <p>Reserva amazónica con biodiversidad única en Pando.</p>
+      <ul class="tour-meta">
+        <li><i class="fas fa-map-marker-alt"></i> Pando</li>
+        <li><i class="fas fa-user"></i> Desde 2 pax</li>
+      </ul>
+      <a href="#" class="btn-link" id="openManuripi">Ver Detalles &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL PARA Cobija -->
+<div id="modalCobija" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeCobija">&times;</span>
+    <h2>Cobija</h2>
+    <p>Cobija es la capital del Pando, ubicada en la Amazonía boliviana, destacada por su cultura amazónica y su entorno natural.</p>
+    <img src="public/C17.jpg" alt="Cobija" style="width:100%; border-radius:8px;">
+  </div>
+</div>
+
+<!-- MODAL PARA Parque Nacional Manuripi -->
+<div id="modalManuripi" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeManuripi">&times;</span>
+    <h2>Parque Nacional Manuripi</h2>
+    <p>El Parque Nacional Manuripi protege la biodiversidad amazónica y es ideal para ecoturismo y contacto con la naturaleza.</p>
+    <img src="public/C18.jpg" alt="Parque Nacional Manuripi" style="width:100%; border-radius:8px;">
+  </div>
+</div>
+
+<!-- JavaScript para Beni y Pando -->
+<script>
+  // Beni
+  const modalMadidi = document.getElementById("modalMadidi");
+  const btnMadidi = document.getElementById("openMadidi");
+  const closeMadidi = document.getElementById("closeMadidi");
+  btnMadidi.onclick = e => { e.preventDefault(); modalMadidi.style.display = "block"; }
+  closeMadidi.onclick = () => { modalMadidi.style.display = "none"; }
+
+  const modalRurrenabaque = document.getElementById("modalRurrenabaque");
+  const btnRurrenabaque = document.getElementById("openRurrenabaque");
+  const closeRurrenabaque = document.getElementById("closeRurrenabaque");
+  btnRurrenabaque.onclick = e => { e.preventDefault(); modalRurrenabaque.style.display = "block"; }
+  closeRurrenabaque.onclick = () => { modalRurrenabaque.style.display = "none"; }
+
+  // Pando
+  const modalCobija = document.getElementById("modalCobija");
+  const btnCobija = document.getElementById("openCobija");
+  const closeCobija = document.getElementById("closeCobija");
+  btnCobija.onclick = e => { e.preventDefault(); modalCobija.style.display = "block"; }
+  closeCobija.onclick = () => { modalCobija.style.display = "none"; }
+
+  const modalManuripi = document.getElementById("modalManuripi");
+  const btnManuripi = document.getElementById("openManuripi");
+  const closeManuripi = document.getElementById("closeManuripi");
+  btnManuripi.onclick = e => { e.preventDefault(); modalManuripi.style.display = "block"; }
+  closeManuripi.onclick = () => { modalManuripi.style.display = "none"; }
+
+  // Cerrar modales al hacer clic fuera
+  window.onclick = function(event) {
+    if(event.target == modalMadidi) modalMadidi.style.display = "none";
+    if(event.target == modalRurrenabaque) modalRurrenabaque.style.display = "none";
+    if(event.target == modalCobija) modalCobija.style.display = "none";
+    if(event.target == modalManuripi) modalManuripi.style.display = "none";
+  }
+</script>
+
+
+  </div>
+</section>
+
+<section id="demo" class="demo-section">
+  <div class="container">
+    <h2 class="section-title">Viaje Virtual por Bolivia</h2>
+    <p>Explora Bolivia en un mapa interactivo.</p>
+    
+    <div class="map-container" style="width: 100%; height: 600px; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+      <iframe
+        src="https://www.google.com/maps?q=Bolivia&output=embed"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+
+
+
+    <section class="testimonials-section">
+      <div class="container">
+        <h2 class="section-title">Lo que dicen nuestros viajeros</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Extraordinario tour. Diego es un hit. Aprendizajes culturales fantásticos."</p>
+            <h4>- Julio Rojas</h4>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"The guide is a true expert in architecture. El Alto is a fascinating destination."</p>
+            <h4>- Jonathan Capra</h4>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"La experiencia fue maravillosa, pasé un momento de calidad con mi familia."</p>
+            <h4>- María Martha N.</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<section class="newsletter-section"> 
+  <div class="container newsletter-content">
+    <div>
+      <h3>Únete a nuestra comunidad</h3>
+      <p>Recibe ofertas especiales, noticias sobre Sarañani y eventos culturales.</p>
+    </div>
+    <form class="newsletter-form" id="newsletterForm">
+      <input type="email" placeholder="Tu correo electrónico" required>
+      <button type="submit">Suscribirse</button>
+    </form>
+    <p id="newsletterMessage" style="color: var(--color-secondary); margin-top:10px;"></p>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('newsletterForm');
+  const message = document.getElementById('newsletterMessage');
+  const telegramLink = "https://t.me/+BftcgwxIYIc2ODU5";
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault(); // evita recargar página
+    const email = this.querySelector('input').value;
+    
+    // Guardar o procesar el correo en el backend aquí si quieres
+    console.log('Correo registrado:', email);
+
+    // Mensaje de confirmación
+    message.textContent = "¡Gracias por suscribirte! Serás redirigido a nuestro grupo de Telegram.";
+    
+    this.reset();
+
+    // Abrir grupo de Telegram después de 1 segundo
+    setTimeout(() => {
+      window.open(telegramLink, "_blank");
+    }, 1000);
+  });
+</script>
+</style>
+
+<!-- JavaScript para abrir/cerrar ambos modales -->
+<script>
+  // Modal Ciudad de La Paz
+  const modalPaz = document.getElementById("myModal");
+  const btnPaz = document.getElementById("openModal");
+  const spanPaz = modalPaz.getElementsByClassName("close")[0];
+
+  btnPaz.onclick = function(event) {
+    event.preventDefault();
+    modalPaz.style.display = "block";
+  }
+
+  spanPaz.onclick = function() {
+    modalPaz.style.display = "none";
+  }
+
+  // Modal Lago Titicaca
+  const modalTiticaca = document.getElementById("myModalTiticaca");
+  const btnTiticaca = document.getElementById("openModalTiticaca");
+  const spanTiticaca = document.getElementById("closeTiticaca");
+
+  btnTiticaca.onclick = function(event) {
+    event.preventDefault();
+    modalTiticaca.style.display = "block";
+  }
+
+  spanTiticaca.onclick = function() {
+    modalTiticaca.style.display = "none";
+  }
+
+  // Cerrar modal al hacer clic fuera
+  window.onclick = function(event) {
+    if(event.target == modalPaz) {
+      modalPaz.style.display = "none";
+    }
+    if(event.target == modalTiticaca) {
+      modalTiticaca.style.display = "none";
+    }
+  }
+</script>
+</script>
+
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <img src="public/logo1.JPG"alt="Sarañani Logo" class="footer-logo" />
+        <p>Turismo inteligente con identidad y compromiso.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Contacto</h4>
+        <p><i class="fas fa-map-marker-alt"></i> Calle Pedro Salazar No 429, Piso 2, La Paz.</p>
+        <p><i class="fas fa-phone"></i> +591 69940021</p>
+        <p><i class="fas fa-envelope"></i> info@sarananitours.com</p>
+      </div>
+      <div class="footer-links">
+        <h4>Síguenos</h4>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Sarañani Tours Bolivia. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>

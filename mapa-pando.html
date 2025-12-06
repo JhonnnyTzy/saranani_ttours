@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mapa Pando</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+<link rel="stylesheet" href="https://unpkg.com/photo-sphere-viewer@4/dist/photo-sphere-viewer.css" />
+<style>
+body { margin:0; font-family: Arial, sans-serif; }
+.places-tags { padding:10px; background:#f2f2f2; border-radius:10px; margin-bottom:10px; }
+.tag-place { cursor:pointer; padding:5px 12px; background:#fff; border:1px solid #ccc; border-radius:5px; margin-right:5px; display:inline-block; }
+.tag-place:hover { background:#cce7ff; border-color:#007bff; }
+.btn-toggle { padding:6px 15px; background:#007bff; color:#fff; border:none; border-radius:6px; font-size:14px; cursor:pointer; margin-left:10px; }
+.btn-toggle:hover { background:#0056b3; }
+#map { height:90vh; width:100%; }
+.viewer-modal { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:3000; display:none; flex-direction:column; align-items:center; justify-content:center; opacity:0; transition:0.3s; }
+.viewer-modal.active { display:flex; opacity:1; }
+.viewer-content { width:90%; height:80%; max-width:1200px; background:#000; border-radius:10px; overflow:hidden; position:relative; border:2px solid #DC143C; display:flex; align-items:center; justify-content:center; }
+iframe, #viewer360 { width:100%; height:100%; border:none; object-fit:contain; }
+.close-btn { position:absolute; top:20px; right:20px; background:white; color:black; border:none; width:40px; height:40px; border-radius:50%; font-size:1.5rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:0.3s; }
+.close-btn:hover { background:#DC143C; color:white; }
+.location-title { color:white; margin-bottom:15px; font-size:1.5rem; text-align:center; }
+</style>
+</head>
+<body>
+
+<div class="places-tags">
+  <span class="tag-place" data-place="Cobija">Cobija</span>
+  <span class="tag-place" data-place="Río Acre">Río Acre</span>
+  <span class="tag-place" data-place="Madre de Dios">Madre de Dios</span>
+  <span class="tag-place" data-place="Villa Nueva">Villa Nueva</span>
+  <span class="tag-place" data-place="Reserva Manuripi">Reserva Manuripi</span>
+  <button class="btn-toggle" onclick="toggleMap()">Cambiar Vista</button>
+  <button class="btn-toggle" onclick="location.href='circuits.html'">← Volver</button>
+</div>
+
+<div id="map"></div>
+
+<div class="viewer-modal" id="modal360">
+  <button class="close-btn" onclick="closeViewer()">&times;</button>
+  <h2 class="location-title" id="modalTitle">Cargando...</h2>
+  <div class="viewer-content" id="viewerContainer">
+    <iframe id="iframe360" src="" allowfullscreen></iframe>
+    <div id="viewer360" style="display:none;"></div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+<script src="https://unpkg.com/three@0.150.1/build/three.min.js"></script>
+<script src="https://unpkg.com/photo-sphere-viewer@4/dist/photo-sphere-viewer.js"></script>
+
+<script>
+const normal = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19});
+const satelital = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19});
+const map = L.map('map', { layers: [satelital] }).setView([-11.0333,-68.7333],10);
+let actual = "satelital";
+
+function toggleMap(){ if(actual==="satelital"){ map.removeLayer(satelital); map.addLayer(normal); actual="normal"; } else{ map.removeLayer(normal); map.addLayer(satelital); actual="satelital"; } }
+
+const lugares = [
+  { nombre:'Cobija', coords:[-11.0333,-68.7333], embed:"public/pando1.jpg" },
+  { nombre:'Río Acre', coords:[-10.9833,-68.7167], embed:"public/pando2.jpg" },
+  { nombre:'Madre de Dios', coords:[-10.9500,-68.7500], embed:"https://kuula.co/share/example1" },
+  { nombre:'Villa Nueva', coords:[-11.0000,-68.7200], embed:"https://kuula.co/share/example2" },
+  { nombre:'Reserva Manuripi', coords:[-10.9000,-68.7000], embed:"https://kuula.co/share/example3" }
+];
+
+let marcadores = {};
+let routingControl = null;
+let viewer = null;
+
+lugares.forEach(lugar=>{ marcadores[lugar.nombre] = L.marker(lugar.coords).addTo(map).bindPopup(`<b>${lugar.nombre}</b><br><button onclick="rutaA('${lugar.nombre}')">🚗 Mostrar Ruta</button><br><button onclick="abrir360('${lugar.nombre}')">🖼 Ver 360°</button>`); });
+
+function rutaA(nombre){
+  const destino = marcadores[nombre].getLatLng();
+  if(routingControl) map.removeControl(routingControl);
+  navigator.geolocation.getCurrentPosition(pos=>{
+    const inicio=[pos.coords.latitude,pos.coords.longitude];
+    routingControl = L.Routing.control({ waypoints:[ L.latLng(inicio[0],inicio[1]), L.latLng(destino.lat,destino.lng) ], language:'es', routeWhileDragging:true, router:L.Routing.osrmv1() }).addTo(map);
+    map.setView(inicio,10);
+  },()=>{ alert("⚠️ Activa tu GPS para calcular la ruta."); });
+}
+
+const modal = document.getElementById('modal360');
+const iframe = document.getElementById('iframe360');
+const viewerContainer = document.getElementById('viewer360');
+const title = document.getElementById('modalTitle');
+
+function abrir360(nombre){
+  const lugar = lugares.find(l => l.nombre === nombre); if(!lugar) return;
+  title.innerText = lugar.nombre;
+  modal.classList.add('active');
+  if(lugar.embed.match(/\.(jpg|jpeg|png|gif)$/i)){
+    iframe.style.display = "none"; viewerContainer.style.display = "block";
+    if(viewer) viewer.destroy();
+    viewer = new PhotoSphereViewer.Viewer({ container: viewerContainer, panorama: lugar.embed, navbar: false, mousewheel: true, autorotate: false, size: { width:'100%', height:'100%' } });
+  } else { viewerContainer.style.display = "none"; iframe.style.display = "block"; iframe.src = lugar.embed; }
+}
+
+function closeViewer(){ modal.classList.remove('active'); setTimeout(()=>{ iframe.src=""; viewerContainer.style.display="none"; if(viewer){ viewer.destroy(); viewer=null; } },300); }
+modal.addEventListener('click',(e)=>{ if(e.target===modal) closeViewer(); });
+
+document.querySelectorAll('.tag-place').forEach(span=>{ span.addEventListener('click',()=>{ const lugar=span.getAttribute('data-place'); const marker=marcadores[lugar]; map.setView(marker.getLatLng(),12); marker.openPopup(); }); });
+</script>
+</body>
+</html>

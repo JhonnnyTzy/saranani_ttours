@@ -1,0 +1,257 @@
+/* --- ESTILOS GENERALES --- */
+    :root {
+      --color-primary: #DC143C;    /* Rojo Carmesí */
+      --color-secondary: #00CED1;  /* Turquesa */
+      --color-bg: #1a1a1a;         /* Fondo Oscuro */
+      --color-bg-accent: #2d2d2d;  /* Fondo Tarjetas */
+      --color-text: #f0f0f0;
+      --color-white: #ffffff;
+      --font-main: 'Outfit', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: var(--font-main);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* --- NAVBAR --- */
+    .navbar {
+      background: rgba(26, 26, 26, 0.95);
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-white);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a:hover { color: var(--color-secondary); }
+
+    /* --- HERO DE LA PÁGINA --- */
+    .page-header {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1534234828569-1f27264769cc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      padding: 5rem 0;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .page-title {
+      font-size: 3rem;
+      color: var(--color-white);
+      margin-bottom: 1rem;
+    }
+
+    /* --- GRID DE TARJETAS --- */
+    .circuits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding-bottom: 4rem;
+    }
+
+    .circuit-card {
+      background: var(--color-bg-accent);
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.05);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .circuit-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--color-secondary);
+    }
+
+    .card-image-wrapper {
+      height: 250px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .tag {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: var(--color-primary);
+      color: white;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      z-index: 2;
+    }
+
+    /* --- EL EFECTO DE "INFORMACIÓN" (OVERLAY) --- */
+    .card-overlay {
+      position: absolute;
+      bottom: -100%; /* Oculto abajo */
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+      transition: bottom 0.4s ease-in-out;
+      backdrop-filter: blur(5px);
+    }
+
+    /* Esta clase se activa con JS */
+    .circuit-card.active .card-overlay {
+      bottom: 0;
+    }
+
+    .overlay-text {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .overlay-details {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 1.5rem;
+      color: var(--color-secondary);
+      font-size: 0.9rem;
+    }
+
+    .btn-details {
+      padding: 10px 25px;
+      background: var(--color-primary);
+      color: white;
+      border-radius: 50px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn-details:hover {
+      background: white;
+      color: var(--color-primary);
+    }
+
+    .card-content {
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .card-content h3 {
+      color: var(--color-white);
+      margin-bottom: 0.5rem;
+    }
+
+    .hint {
+      font-size: 0.8rem;
+      color: var(--color-secondary);
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+      .nav-links { display: none; } /* Menú simple para esta página */
+      .page-title { font-size: 2rem; }
+    }
+
+    .places-tags {
+  position: absolute;
+  top: 40px; /* Ajusta según donde quieras que aparezcan */
+  left: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag-place {
+  background-color: #FF6347; /* Color de los tags */
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.tag-place:hover {
+  transform: scale(1.1);
+}
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 100; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: black;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #000;
+}
+

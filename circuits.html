@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="public/logo1.JPG" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Sarañani Tours Bolivia - Turismo inteligente, realidad virtual y recorridos 360° por Bolivia." />
+  <title>Sarañani Tours Bolivia | Viaja Virtualmente</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="src/style1.css">
+</head>
+<body>
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div class="contact-info">
+        <span><i class="fas fa-phone"></i> +591 </span>
+        <span><i class="fas fa-envelope"></i> info@sarananitours.com</span>
+        <span class="hide-mobile"><i class="fas fa-map-marker-alt"></i> La Paz, Bolivia</span>
+      </div>
+      <div class="social-mini">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <img src="public/logo1.JPG" alt="Sarañani Tours Logo" />
+        <span>Sarañani</span>
+      </a>
+      <button class="mobile-menu-btn" aria-label="Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html" >Inicio</a></li>
+        <li><a href="circuits.html" class="active">Circuitos</a></li>
+        <li><a href="about.html">Nosotros</a></li>
+        <li><a href="login.html" class="nav-login-btn">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  
+<header class="page-header">
+    <div class="container">
+      <h1 class="page-title">Nuestros Destinos</h1>
+      <p>Toca cualquier tarjeta para ver el itinerario.</p>
+    </div>
+  </header>
+
+  <main class="container">
+  <div class="circuits-grid">
+
+<!-- LA PAZ -->
+<div class="circuit-card" onclick="toggleCard(this)">
+  <div class="card-image-wrapper">
+    <img src="public/p1.jpg" alt="La Paz" class="card-img">
+    
+    <!-- Tag principal -->
+    <span class="tag">lugares</span>
+    
+    <div class="card-overlay">
+   
+      <!-- Tags de lugares como botones -->
+      <div class="places-tags">
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Visita las Ruinas de Tiwanaku')">Tiwanaku</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Valle de la Luna')">Valle de la Luna</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Teleférico de La Paz')">Teleférico</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Lago Titicaca: Copacabana e Isla del Sol')">Lago Titicaca</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Coroico')">Coroico</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Sorata')">Sorata</span>
+      </div>
+    
+<button class="btn-details" onclick="window.open('mapa-lapaz.html', '_blank')">Ver Detalles mapa</button>
+
+
+    </div>
+  </div>
+  
+  <div class="card-content">
+    <h3>La Paz</h3>
+    <p class="hint"><i class="fas fa-hand-pointer"></i> Toca para info</p>
+  </div>
+</div>
+
+
+
+
+ <!-- SANTA CRUZ -->
+<div class="circuit-card" onclick="toggleCard(this)">
+  <div class="card-image-wrapper">
+    <img src="public/p2.jpg" alt="Santa Cruz" class="card-img">
+    
+    <!-- Tag principal -->
+    <span class="tag">lugares</span>
+    
+    <div class="card-overlay">
+      <!-- Tags de lugares como botones -->
+      <div class="places-tags">
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Ruta de los Cholets y arquitectura Neo-Andina')">Cholets</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Parque Lomas de Arena')">Lomas de Arena</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Biocentro Güembé y sus mariposarios')">Biocentro Güembé</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Catedral de Santa Cruz y Plaza 24 de Septiembre')">Catedral</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Jardín Botánico Santa Cruz')">Jardín Botánico</span>
+      </div>
+
+      <!-- Botón mapa -->
+      <button class="btn-details" onclick="window.open('mapa-santacruz.html', '_blank')">Ver Detalles mapa</button>
+    </div>
+  </div>
+  
+  <div class="card-content">
+    <h3>Santa Cruz</h3>
+    <p class="hint"><i class="fas fa-hand-pointer"></i> Toca para info</p>
+  </div>
+</div>
+<!-- COCHABAMBA -->
+<div class="circuit-card" onclick="toggleCard(this)">
+  <div class="card-image-wrapper">
+    <img src="public/p3.jpg" alt="Cochabamba" class="card-img">
+    
+    <!-- Tag principal -->
+    <span class="tag">lugares</span>
+    
+    <div class="card-overlay">
+      <!-- Tags de lugares como botones -->
+      <div class="places-tags">
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Cristo de la Concordia')">Cristo de la Concordia</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Parque Tunari')">Parque Tunari</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Laguna Alalay')">Laguna Alalay</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Museo de la Coca')">Museo de la Coca</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Cochabamba Centro Histórico y Plaza 14 de Septiembre')">Centro Histórico</span>
+      </div>
+
+      <!-- Botón mapa -->
+      <button class="btn-details" onclick="window.open('mapa-cochabamba.html', '_blank')">Ver Detalles mapa</button>
+    </div>
+  </div>
+  
+  <div class="card-content">
+    <h3>Cochabamba</h3>
+    <p class="hint"><i class="fas fa-hand-pointer"></i> Toca para info</p>
+  </div>
+</div><!-- ORURO -->
+<div class="circuit-card" onclick="toggleCard(this)">
+  <div class="card-image-wrapper">
+    <img src="public/p4.jpg" alt="Oruro" class="card-img">
+    <span class="tag">lugares</span>
+    <div class="card-overlay">
+      <div class="places-tags">
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Carnaval de Oruro')">Carnaval</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Santuario de la Virgen del Socavón')">Santuario</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Laguna Huatasi')">Laguna Huatasi</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Museo Minero')">Museo Minero</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Parque Simón Bolívar')">Parque Simón Bolívar</span>
+      </div>
+      <button class="btn-details" onclick="window.open('mapa-oruro.html', '_blank')">Ver Detalles mapa</button>
+    </div>
+  </div>
+  <div class="card-content">
+    <h3>Oruro</h3>
+    <p class="hint"><i class="fas fa-hand-pointer"></i> Toca para info</p>
+  </div>
+</div>
+
+<!-- POTOSÍ -->
+<div class="circuit-card" onclick="toggleCard(this)">
+  <div class="card-image-wrapper">
+    <img src="public/p5.jpg" alt="Potosí" class="card-img">
+    <span class="tag">lugares</span>
+    <div class="card-overlay">
+      <div class="places-tags">
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Cerro Rico y minas históricas')">Cerro Rico</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Casa Nacional de la Moneda')">Casa de la Moneda</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Plaza 10 de Noviembre')">Plaza Central</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Iglesia de San Lorenzo')">Iglesia San Lorenzo</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Catedral de Potosí')">Catedral</span>
+      </div>
+      <button class="btn-details" onclick="window.open('mapa-potosi.html', '_blank')">Ver Detalles mapa</button>
+    </div>
+  </div>
+  <div class="card-content">
+    <h3>Potosí</h3>
+    <p class="hint"><i class="fas fa-hand-pointer"></i> Toca para info</p>
+  </div>
+</div>
+
+<!-- TARIJA -->
+<div class="circuit-card" onclick="toggleCard(this)">
+  <div class="card-image-wrapper">
+    <img src="public/p6.jpg" alt="Tarija" class="card-img">
+    <span class="tag">lugares</span>
+    <div class="card-overlay">
+      <div class="places-tags">
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Valle de la Concepción')">Valle Concepción</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Casonas coloniales y Plaza Principal')">Plaza Principal</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Museo Paleontológico')">Museo Paleontológico</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Viñedos y bodegas')">Viñedos</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Parque Nacional Aguaragüe')">Parque Aguaragüe</span>
+      </div>
+      <button class="btn-details" onclick="window.open('mapa-tarija.html', '_blank')">Ver Detalles mapa</button>
+    </div>
+  </div>
+  <div class="card-content">
+    <h3>Tarija</h3>
+    <p class="hint"><i class="fas fa-hand-pointer"></i> Toca para info</p>
+  </div>
+</div>
+
+<!-- CHUQUISACA -->
+<div class="circuit-card" onclick="toggleCard(this)">
+  <div class="card-image-wrapper">
+    <img src="public/p7.jpg" alt="Chuquisaca" class="card-img">
+    <span class="tag">lugares</span>
+    <div class="card-overlay">
+      <div class="places-tags">
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Sucre Centro Histórico')">Centro Histórico</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Casa de la Libertad')">Casa de la Libertad</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Parque Cretácico')">Parque Cretácico</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Convento de San Felipe Neri')">Convento San Felipe</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Catedral Metropolitana de Sucre')">Catedral</span>
+      </div>
+      <button class="btn-details" onclick="window.open('mapa-chuquisaca.html', '_blank')">Ver Detalles mapa</button>
+    </div>
+  </div>
+  <div class="card-content">
+    <h3>Chuquisaca</h3>
+    <p class="hint"><i class="fas fa-hand-pointer"></i> Toca para info</p>
+  </div>
+</div>
+
+<!-- BENI -->
+<div class="circuit-card" onclick="toggleCard(this)">
+  <div class="card-image-wrapper">
+    <img src="public/p8.jpg" alt="Beni" class="card-img">
+    <span class="tag">lugares</span>
+    <div class="card-overlay">
+      <div class="places-tags">
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Parque Nacional Madidi')">Parque Madidi</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Río Beni y actividades acuáticas')">Río Beni</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Jesús de Machaca')">Jesús de Machaca</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Cultura moxeña')">Cultura Moxeña</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Laguna Suárez')">Laguna Suárez</span>
+      </div>
+      <button class="btn-details" onclick="window.open('mapa-beni.html', '_blank')">Ver Detalles mapa</button>
+    </div>
+  </div>
+  <div class="card-content">
+    <h3>Beni</h3>
+    <p class="hint"><i class="fas fa-hand-pointer"></i> Toca para info</p>
+  </div>
+</div>
+
+<!-- PANDO -->
+<div class="circuit-card" onclick="toggleCard(this)">
+  <div class="card-image-wrapper">
+    <img src="public/p9.jpg" alt="Pando" class="card-img">
+    <span class="tag">lugares</span>
+    <div class="card-overlay">
+      <div class="places-tags">
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Río Acre y navegación')">Río Acre</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Reserva Nacional Manuripi')">Reserva Manuripi</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Puerto Rico y comunidades')">Puerto Rico</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Cultura amazónica')">Cultura Amazónica</span>
+        <span class="tag-place" onclick="event.stopPropagation(); alert('Parque Noel Kempff Mercado')">Parque Noel Kempff</span>
+      </div>
+      <button class="btn-details" onclick="window.open('mapa-pando.html', '_blank')">Ver Detalles mapa</button>
+    </div>
+  </div>
+  <div class="card-content">
+    <h3>Pando</h3>
+    <p class="hint"><i class="fas fa-hand-pointer"></i> Toca para info</p>
+  </div>
+</div>
+
+  </div>
+</main>
+
+
+  <script>
+    function toggleCard(element) {
+      // 1. Si la tarjeta actual ya está abierta, la cerramos
+      if (element.classList.contains('active')) {
+        element.classList.remove('active');
+      } else {
+        // 2. Cerramos todas las demás tarjetas primero
+        document.querySelectorAll('.circuit-card').forEach(card => {
+          card.classList.remove('active');
+        });
+        // 3. Abrimos la tarjeta que se clickeó
+        element.classList.add('active');
+      }
+    }
+  </script>
+
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <img src="public/logo1.JPG"alt="Sarañani Logo" class="footer-logo" />
+        <p>Turismo inteligente con identidad y compromiso.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Contacto</h4>
+        <p><i class="fas fa-map-marker-alt"></i> Calle Pedro Salazar No 429, Piso 2, La Paz.</p>
+        <p><i class="fas fa-phone"></i> +591 69940021</p>
+        <p><i class="fas fa-envelope"></i> info@sarananitours.com</p>
+      </div>
+      <div class="footer-links">
+        <h4>Síguenos</h4>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Sarañani Tours Bolivia. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/main.js"></script>

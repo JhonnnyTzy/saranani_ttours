@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sumérgete 360° | Sarañani Tours</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <style>
+    /* --- VARIABLES (Dark Mode) --- */
+    :root {
+      --color-primary: #DC143C;
+      --color-secondary: #00CED1;
+      --color-bg: #1a1a1a;
+      --color-text: #f0f0f0;
+      --header-height: 70px;
+      --topbar-height: 40px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      padding-top: calc(var(--header-height) + var(--topbar-height));
+      height: 100vh; /* Para que el mapa ocupe toda la pantalla */
+      display: flex;
+      flex-direction: column;
+      overflow: hidden; /* Evitamos scroll doble */
+    }
+
+    a { text-decoration: none; color: inherit; transition: 0.3s; }
+    ul { list-style: none; }
+
+    /* --- TOP BAR & NAV --- */
+    .top-bar {
+      position: fixed; top: 0; left: 0; width: 100%; height: var(--topbar-height);
+      background-color: #0f0f0f; z-index: 2000;
+      display: flex; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.85rem; color: #a0a0a0; padding: 0 20px;
+    }
+    .contact-info i { color: var(--color-secondary); margin-right: 5px; }
+
+    .navbar {
+      position: fixed; top: var(--topbar-height); left: 0; width: 100%; height: var(--header-height);
+      background: rgba(26, 26, 26, 0.95); backdrop-filter: blur(10px); z-index: 1999;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding: 0 20px;
+    }
+    .nav-container { height: 100%; display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+    .logo { font-size: 1.5rem; font-weight: 700; color: white; display: flex; align-items: center; gap: 10px; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a:hover { color: var(--color-secondary); }
+    
+    /* --- CONTENEDOR DEL MAPA --- */
+    #map-container {
+      flex: 1; /* Ocupa el resto de la pantalla */
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    #map {
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    /* Instrucciones flotantes */
+    .map-overlay-info {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.8);
+      padding: 15px 25px;
+      border-radius: 30px;
+      z-index: 1000;
+      border: 1px solid var(--color-secondary);
+      box-shadow: 0 0 15px rgba(0, 206, 209, 0.3);
+      text-align: center;
+      pointer-events: none; /* Para poder hacer clic a través de él */
+    }
+    .map-overlay-info h1 { font-size: 1.2rem; color: white; margin-bottom: 5px; }
+    .map-overlay-info p { font-size: 0.9rem; color: var(--color-secondary); }
+
+    /* --- MODAL VISOR 360 (Hidden by default) --- */
+    .viewer-modal {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.95);
+      z-index: 3000;
+      display: none; /* Oculto */
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .viewer-modal.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .viewer-content {
+      width: 90%;
+      height: 80%;
+      max-width: 1200px;
+      background: #000;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      border: 2px solid var(--color-primary);
+      box-shadow: 0 0 30px rgba(220, 20, 60, 0.5);
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: white;
+      color: black;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 3001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .close-btn:hover { background: var(--color-primary); color: white; }
+    
+    .location-title {
+      color: white;
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .contact-info span:not(:first-child) { display: none; }
+      .map-overlay-info { width: 90%; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-bar">
+    <div class="contact-info">
+      <span><i class="fas fa-phone"></i> +591 69940021</span>
+      <span> Sarañani Tours - Mapa Interactivo</span>
+    </div>
+  </div>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="Logo" style="height:35px;">
+        <span>Sarañani</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Inicio</a></li>
+        <li><a href="circuits.html">Circuitos</a></li> <li><a href="#destinos">Destinos</a></li>
+        <li><a href="sumergete.html">360°</a></li>
+        <li><a href="about.html">Nosotros</a></li>
+        <li><a href="login.html" class="nav-login-btn">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="map-container">
+    <div class="map-overlay-info">
+      <h1>Mapa de Inmersión</h1>
+      <p><i class="fas fa-hand-pointer"></i> Haz clic en los marcadores Rojos para abrir el 360°</p>
+    </div>
+    <div id="map"></div>
+  </div>
+
+  <div class="viewer-modal" id="modal360">
+    <button class="close-btn" onclick="closeViewer()">&times;</button>
+    <h2 class="location-title" id="modalTitle">Cargando...</h2>
+    <div class="viewer-content">
+      <iframe id="iframe360" src="" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  
+  <script>
+    // 1. INICIALIZAR EL MAPA (Centrado en Bolivia)
+    // Usamos CartoDB DarkMatter para que combine con tu diseño oscuro
+    const map = L.map('map').setView([-16.2902, -63.5887], 6); // Centro de Bolivia, Zoom 6
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap &copy; CARTO',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
+
+    // 2. DEFINIR LOS PUNTOS TURÍSTICOS Y SUS ENLACES 360
+    // Estos enlaces son embeds reales de alta calidad
+    const locations = [
+      {
+        name: "Salar de Uyuni",
+        lat: -20.1338,
+        lng: -67.4891,
+        embed: "https://kuula.co/share/7kPlf?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1"
+      },
+      {
+        name: "Cholet (El Alto)",
+        lat: -16.5000,
+        lng: -68.1600,
+        embed: "https://kuula.co/share/collection/7lG2P?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1" // Ejemplo
+      },
+      {
+        name: "Lago Titicaca",
+        lat: -16.1900,
+        lng: -69.1000,
+        embed: "https://kuula.co/share/7lKyq?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1"
+      },
+      {
+        name: "Ciudad de La Paz (Illimani)",
+        lat: -16.4897,
+        lng: -68.1193,
+        embed: "https://kuula.co/share/79Q8y?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1"
+      },
+      {
+        name: "Toro Toro",
+        lat: -18.1333,
+        lng: -65.7667,
+        embed: "https://kuula.co/share/79XkX?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1" 
+      }
+    ];
+
+    // 3. ICONO PERSONALIZADO (Rojo brillante)
+    const tourIcon = L.icon({
+      iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
+      shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41]
+    });
+
+    // 4. AGREGAR MARCADORES AL MAPA
+    locations.forEach(loc => {
+      const marker = L.marker([loc.lat, loc.lng], {icon: tourIcon}).addTo(map);
+      
+      // Añadir tooltip al pasar el mouse
+      marker.bindTooltip(loc.name, {
+        permanent: false, 
+        direction: 'top',
+        className: 'my-tooltip'
+      });
+
+      // Evento Click: Abrir el modal 360
+      marker.on('click', () => {
+        openViewer(loc.name, loc.embed);
+      });
+    });
+
+    // 5. FUNCIONES DEL MODAL
+    const modal = document.getElementById('modal360');
+    const iframe = document.getElementById('iframe360');
+    const title = document.getElementById('modalTitle');
+
+    function openViewer(name, url) {
+      title.innerText = name;
+      iframe.src = url;
+      modal.classList.add('active');
+    }
+
+    function closeViewer() {
+      modal.classList.remove('active');
+      // Limpiamos el src para detener la carga/audio cuando se cierra
+      setTimeout(() => {
+        iframe.src = "";
+      }, 300);
+    }
+
+    // Cerrar si se hace click fuera del contenido
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeViewer();
+    });
+
+  </script>
+
+  <style>
+    /* Estilo extra para el tooltip del mapa */
+    .leaflet-tooltip {
+      background: var(--color-primary);
+      border: none;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
+    .leaflet-tooltip-top:before {
+      border-top-color: var(--color-primary);
+    }
+  </style>
+
+</body>
+</html>
